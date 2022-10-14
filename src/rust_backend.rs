@@ -326,9 +326,10 @@ impl Bn {
 
     /// True if a prime number
     pub fn is_prime(&self) -> bool {
+        let mut rng = rand::thread_rng();
         match self.0.to_biguint() {
             None => false,
-            Some(b) => prime::strong_check(&b),
+            Some(b) => prime::strong_check(&b, &mut rng),
         }
     }
 
