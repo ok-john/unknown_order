@@ -103,6 +103,12 @@ impl Bn {
         }
         t
     }
+    
+    /// Returns the fewest bits required to 
+    /// represent self.
+    pub fn bit_length(&self) -> u64 {
+        self.0.bits()
+    }
 
     /// Compute (self - rhs) mod n
     pub fn modsub(&self, rhs: &Self, n: &Self) -> Self {
